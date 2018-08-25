@@ -30,11 +30,15 @@ app.get('*', (request, response) => {
   response.render('pages/error');
 });
 
+function getBooks() {
+  (request, response) => {
+    response.render('index');
+    client.query('SELECT title, author, image_url FROM books_app;').then(results => {
+      response.render('index', {books: results.row});
+    });
+  };
+}
+
 app.listen(PORT, () => console.log('Listening on PORT', PORT));
 
-function getBooks(request, response) {
-  client.query('SELECT title, author, image_url FROM books_app;').then(results => {
-    response.render('index', {books : results.row});
-  });
-}
 
