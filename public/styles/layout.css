@@ -1,0 +1,16 @@
+.tab {
+  display: none;
+}
+
+@media only screen and (min-width: 1000px) {
+  
+  .tab {
+    display: inline;
+    font-size: 40px;
+    padding: 10px;
+  }
+
+  header nav ul li:hover a {
+    color: #29506D;
+  }
+}

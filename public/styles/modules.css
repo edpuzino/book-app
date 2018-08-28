@@ -1,0 +1,30 @@
+.icon-menu {
+  display: block;
+  margin-right: 25px;
+  float: right;
+  font-size: 40px;
+}
+
+
+@media only screen and (min-width: 1000px) {
+  .icon-menu {
+    display: none;
+
+  }
+}
+
+.icon {
+  width: 3em;
+  height: 3em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+
+.site-logo {
+  font-size: 50px;
+}
+
+.footer {
+  font-size: 25px;
+}
