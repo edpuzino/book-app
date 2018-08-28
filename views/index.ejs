@@ -2,26 +2,33 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="app.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="styles/reset.css">
+  <link rel="stylesheet" href="/app.css">
+  <link rel="stylesheet" href="https://i.icomoon.io/public/temp/0bc1756940/UntitledProject/style-svg.css">
+  <script defer src="https://i.icomoon.io/public/temp/0bc1756940/UntitledProject/svgxuse.js"></script>
+  <link rel="stylesheet" href="/styles/icons.css">
+  <link rel="stylesheet" href="/styles/base.css">
+  <link rel="stylesheet" href="/styles/layout.css">
+  <link rel="stylesheet" href="/styles/modules.css">
     <title>Hi there</title>
 </head>
 
 <body>
-   <h1>Count: <%= books.length %> </h1>
-<ul id = books>
-     <% books.forEach((book) => { %>
-  <li>
+  <%- include('./partials/header') %>
+  <ul id = books>
+    <h1>Count: <%= books.length %> </h1>
+    <% books.forEach((book) => { %>
+    <li>
       <img id = "book_img" src= "<%= book.image_url %>"/>
-     <b><%= book.title%></b> <br>
-     <em><%= book.author%> </em><br>
-     <% }); %>
-  </li>
-</ul>
-
-
+      <b><%= book.title%></b> <br>
+      <em><%= book.author%> </em><br>
+      <% }); %>
+    </li>
+  </ul> 
+  <%- include('./partials/footer') %>
 </body>
 
 </html>
