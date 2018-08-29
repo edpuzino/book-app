@@ -2,15 +2,27 @@
   display: none;
 }
 
+#page-label {
+  font-size: 30px;
+  background-color: blue;
+  height: 80px;
+  width: 100%;
+}
+
+.label {
+  text-align: center;
+  padding: 20px;
+}
+
 @media only screen and (min-width: 1000px) {
   
   .tab {
     display: inline;
-    font-size: 40px;
-    padding: 10px;
+    font-size: 30px;
+    padding: 10px 0px 5px 20px;
   }
 
-  header nav ul li:hover a {
-    color: #29506D;
+  header nav ul li a:hover {
+    color: red;
   }
 }
