@@ -2,15 +2,57 @@
   display: block;
   margin-right: 25px;
   float: right;
-  font-size: 40px;
+  font-size: 35px;
+  max-width: 40%;
 }
 
+nav:hover ul {
+  display: block;
+  color: red;
+}
 
 @media only screen and (min-width: 1000px) {
   .icon-menu {
     display: none;
 
   }
+}
+
+#book_img {
+  float: center;
+}
+
+.books {
+  margin: 5%;
+  padding: 20px;
+  background-color: #fafafa;
+  align-content: center;
+
+}
+
+.book {
+  text-align: center;
+}
+
+#title {
+  font-size: 24px;
+}
+
+#author {
+  font-size: 20px;
+  font-style: italic;
+}
+
+#details {
+  display: block;
+  padding: 10px;
+  margin: 10px auto;
+  background-color: rgb(24, 24, 24);
+  width: 20%;
+  color: #fafafa;
+  Font-size: 24px;
+  border-radius: 4px;
+  border: 2px shadow grey;
 }
 
 .icon {
@@ -22,9 +64,20 @@
 }
 
 .site-logo {
-  font-size: 50px;
+  font-size: 35px;
+  padding-left: 20px;
+  padding-top: 15px;
+  max-width: 50%;
 }
 
 .footer {
   font-size: 25px;
+}
+
+.error {
+  font-size: 75px;
+}
+
+.title {
+  font-size: 30px;
 }

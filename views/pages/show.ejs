@@ -1,15 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="app.css">
-  <title>Show</title>
-</head>
-<body>
-  <%- include('../partials/header') %>
-  <h1>Show</h1>
-  <%- include('../partials/footer') %>
-</body>
+  <%- include('../partials/head') %>
+  <body>
+    <%- include('../partials/header') %>
+    <% books.forEach((book) => { %>
+      <section class ="books">
+        <ul class ="book">
+          <li>
+          <img id = "book_img" src= "<%= book.image_url %>"/></li>
+          <li><em><%= book.title%></em></li>
+          <li><%= book.author%> </li>
+          <li><%= book.isbn%> </li>
+          <li><%= book.description%> </li>      
+        </ul>
+      </section>
+    <% }); %> 
+      <p>
+        <a class='list' href='/books'>Return to Books List</a>
+      </p> 
+    <%- include('../partials/footer') %>
+  </body>
 </html>
