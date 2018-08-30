@@ -5,19 +5,17 @@
     <%- include('../partials/header') %>
     <% books.forEach((book) => { %>
       <section class ="books">
-        <ul class ="book">
-          <li>
-          <img id = "book_img" src= "<%= book.image_url %>"/></li>
-          <li><em><%= book.title%></em></li>
-          <li><%= book.author%> </li>
-          <li><%= book.isbn%> </li>
-          <li><%= book.description%> </li>      
+        <ul class ='book'>
+          <li class='items'>
+          <img id = 'book_img' src= "<%= book.image_url %>"/></li>
+          <li class='items' id='title'>Title: <%= book.title%></li>
+          <li class ='items' id='author'>Author: <%= book.author%></li>  
+          <li>ISBN: <%= book.isbn%></li>
+          <li><%= book.description%></li>
+          <a class='list' id='button' href="/books">Return to Books List</a>
         </ul>
       </section>
     <% }); %> 
-      <p>
-        <a class='list' href='/books'>Return to Books List</a>
-      </p> 
     <%- include('../partials/footer') %>
   </body>
 </html>

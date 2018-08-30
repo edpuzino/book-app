@@ -25,13 +25,13 @@ const books = (request, response) => {
 };
 
 const details = (request, response) => {
-  let sql = 'SELECT * FROM books WHERE id = $1';
-  let values = [request.param.id];
-  client.query(sql, values).then(results => {
-    response.render('pages/show', {books : results.row}).catch(err => {
-      response.status(500).send(err);
+  const sql = `SELECT * FROM books WHERE id=($1)`;
+  const values = [request.params.id];
+  client.query(sql, values)
+    .then (results => {
+      response.render ('pages/show.ejs', {books: results.rows})
     })
-  })
+    .catch (err => console.log(err, response));
 };
 
 
