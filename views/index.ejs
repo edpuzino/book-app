@@ -7,13 +7,13 @@
       <h2 class='label'>Saved Books</h2>
     </div>
     <% books.forEach((book) => { %>
-      <section class ="books">
+      <section class ='books'>
         <ul class ='book'>
           <li class='items'>
-          <img id = "book_img" src= "<%= book.image_url %>"/></li>
-          <li class='items' id='title'><%= book.title%></li>
-          <li class ='items' id='author'><%= book.author%></li>   
-          <a class='list' id='details' href='books/:id'>Details!</a>
+          <img id = 'book_img' src= "<%= book.image_url %>"/></li>
+          <li class='items' id='title'>Title: <%= book.title%></li>
+          <li class ='items' id='author'>Author: <%= book.author%></li>  
+          <a class='list' id='button' href ="./books/<%= book.id %>">Details!</a>
         </ul>
       </section>
     <% }); %>    
