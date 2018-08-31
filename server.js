@@ -19,19 +19,24 @@ app.use(express.static('./public'));
 //Callbacks
 const books = (request, response) => {
   client.query('SELECT * FROM books;')
-    .then(results => {
-      response.render('index', { books: results.rows });
+    .then(results =>
+      response.render('index', { books: results.rows }))
+    .catch (err => {
+      console.log(err);
+      response .status(500).send(err);  
     });
 };
 
 const details = (request, response) => {
-  const sql = `SELECT * FROM books WHERE id=($1)`;
-  const values = [request.params.id];
+  let sql = `SELECT * FROM books WHERE id=($1)`;
+  let values = [request.params.id];
   client.query(sql, values)
-    .then (results => {
-      response.render('pages/show', {books: results.rows})
-    })
-    .catch (err => console.log(err, response));
+    .then(
+      results => response.render('pages/show', {books: results.rows}))
+    .catch (err => {
+      console.log(err);
+      response .status(500).send(err);
+    });
 };
 
 const addBook = (request, response) => {

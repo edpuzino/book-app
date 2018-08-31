@@ -6,17 +6,33 @@
   max-width: 40%;
 }
 
-nav:hover ul {
-  display: block;
-  color: red;
+nav ul {
+  display: none;
 }
 
-@media only screen and (min-width: 1000px) {
+nav:hover ul {
+  display: inline-block;
+}
+
+nav li {
+  color: rgb(40, 6, 133); 
+}
+
+nav li:hover {
+  color: rgb(133, 102, 218);
+}
+
+@media only screen and (min-width: 600px) {
   .icon-menu {
     display: none;
+  }
 
+  nav ul {
+    display: inline-block;
   }
 }
+
+
 
 #book_img {
   float: center;
@@ -80,7 +96,6 @@ nav:hover ul {
   font-size: 35px;
   padding-left: 20px;
   padding-top: 15px;
-  max-width: 50%;
 }
 
 .footer {
