@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <%- include('../partials/head') %>
-
   <body>
     <%- include('../partials/header') %>
-    <form action='' method=''>
+    <div id='page-label'>
+        <h2 class='label'>Add A New Book</h2>
+    </div>
+    <form id='form' action='' method=''>
+        <input type="name" id="text" value="Title"><br>
+        <input type="name" id="text" value="Author"><br>
+        <input type="name" id="text" value="ISBN"><br>
+        <input type="name" id="text" value="Image URL"><br>
+        <input type="name" id="text" value="Description">
       <p>
         <label></label>
       </p>
     </form>
+    <a class='list' id='button' href ="/books"> Submit</a>
     <%- include('../partials/footer') %>
   </body>
-
 </html>

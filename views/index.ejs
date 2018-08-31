@@ -13,11 +13,10 @@
           <img id = 'book_img' src= "<%= book.image_url %>"/></li>
           <li class='items' id='title'>Title: <%= book.title%></li>
           <li class ='items' id='author'>Author: <%= book.author%></li>  
-          <a class='list' id='button' href ="./books/<%= book.id %>">Details!</a>
+          <a class='list' id='button' href ="./books/<%= book.id %>">View Details</a>
         </ul>
       </section>
     <% }); %>    
     <%- include('./partials/footer') %>
   </body>
-
 </html>

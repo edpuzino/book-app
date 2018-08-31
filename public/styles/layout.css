@@ -1,5 +1,22 @@
-.tab {
-  display: none;
+ul {
+  list-style-type: none;
+}
+
+#form {
+  align-content: center;
+  width: 100%;
+}
+
+#text {
+  display: block;
+  min-width: 180px;
+  max-width: 60%;
+  margin: 20px auto 0px auto;
+  padding: 25px;
+  background-color: #fafafa;
+  border-radius: 4px;
+  box-shadow: 2px 2px 2px black;
+  font-size: 20px;
 }
 
 #page-label {
@@ -14,15 +31,3 @@
   padding: 20px;
 }
 
-@media only screen and (min-width: 1000px) {
-  
-  .tab {
-    display: inline;
-    font-size: 30px;
-    padding: 10px 0px 5px 20px;
-  }
-
-  header nav ul li a:hover {
-    color: red;
-  }
-}

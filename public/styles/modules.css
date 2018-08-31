@@ -6,20 +6,37 @@
   max-width: 40%;
 }
 
-nav:hover ul {
-  display: block;
-  color: red;
+nav ul {
+  display: none;
 }
 
-@media only screen and (min-width: 1000px) {
+nav:hover ul {
+  display: inline-block;
+}
+
+nav li {
+  color: rgb(40, 6, 133); 
+}
+
+nav li:hover {
+  color: rgb(133, 102, 218);
+}
+
+@media only screen and (min-width: 600px) {
   .icon-menu {
     display: none;
+  }
 
+  nav ul {
+    display: inline-block;
   }
 }
 
+
+
 #book_img {
   float: center;
+  box-shadow: 8px 8px 5px rgb(44, 44, 44);
 }
 
 .books {
@@ -27,47 +44,58 @@ nav:hover ul {
   padding: 20px;
   background-color: #fafafa;
   align-content: center;
-
+  border-radius: 4px;
+  box-shadow: 2px 2px 2px black;
 }
 
 .book {
   text-align: center;
 }
 
+.items {  
+  padding: 5px;
+}
+
 #title {
   font-size: 24px;
+  font-display: bold;
 }
 
 #author {
-  font-size: 20px;
+  font-size: 22px;
   font-style: italic;
+}
+
+#description {
+  display: block;
+  padding: 10px;
+  margin: 10px auto;
+  background-color: grey;
+  min-width: 200px;
+  max-width: 60%;
+  Font-size: 20px;
+  border-radius: 4px;
+  box-shadow: 2px 2px 2px black;
 }
 
 #button {
   display: block;
+  text-align: center;
   padding: 10px;
-  margin: 10px auto;
+  margin: 20px auto;
   background-color: rgb(24, 24, 24);
-  width: 20%;
+  min-width: 150px;
+  max-width: 20%;
   color: #fafafa;
   Font-size: 24px;
   border-radius: 4px;
-  border: 2px shadow grey;
-}
-
-.icon {
-  width: 3em;
-  height: 3em;
-  stroke-width: 0;
-  stroke: currentColor;
-  fill: currentColor;
+  box-shadow: 8px 8px 5px rgb(44, 44, 44);
 }
 
 .site-logo {
   font-size: 35px;
   padding-left: 20px;
   padding-top: 15px;
-  max-width: 50%;
 }
 
 .footer {
@@ -76,8 +104,4 @@ nav:hover ul {
 
 .error {
   font-size: 75px;
-}
-
-.title {
-  font-size: 30px;
 }
