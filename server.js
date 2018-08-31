@@ -29,15 +29,20 @@ const details = (request, response) => {
   const values = [request.params.id];
   client.query(sql, values)
     .then (results => {
-      response.render ('pages/show.ejs', {books: results.rows})
+      response.render('pages/show', {books: results.rows})
     })
     .catch (err => console.log(err, response));
+};
+
+const addBook = (request, response) => {
+  response.render('pages/new');
 };
 
 
 //Routes
 app.get('/books', books);
 app.get('/books/:id', details);
+app.get('/add', addBook)
 
 app.get('*', (request, response) => {
   response.render('pages/error');

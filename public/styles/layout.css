@@ -2,6 +2,27 @@
   display: none;
 }
 
+ul {
+  list-style-type: none;
+}
+
+#form {
+  align-content: center;
+  width: 100%;
+}
+
+#text {
+  display: block;
+  min-width: 180px;
+  max-width: 60%;
+  margin: 20px auto 0px auto;
+  padding: 25px;
+  background-color: #fafafa;
+  border-radius: 4px;
+  box-shadow: 2px 2px 2px black;
+  font-size: 20px;
+}
+
 #page-label {
   font-size: 30px;
   background-color: blue;
