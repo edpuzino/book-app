@@ -12,29 +12,28 @@ const PORT = process.env.PORT;
 client.connect();
 client.on('error', err => console.error(err));
 
-app.set('view engine', 'ejs');
+app.use(express.urlencoded({extended:true}));
 app.use(express.static('./public'));
 
+app.set('view engine', 'ejs');
 
 //Callbacks
 const books = (request, response) => {
-  client.query('SELECT * FROM books;')
+  client.query('SELECT title, author, image_url, id FROM books;')
     .then(results =>
-      response.render('index', { books: results.rows }))
+      response.render('index', {books: results.rows}))
     .catch (err => {
-      console.log(err);
-      response .status(500).send(err);  
+      response .status(500).send(err);
     });
 };
 
 const details = (request, response) => {
-  let sql = `SELECT * FROM books WHERE id=($1)`;
+  let sql = `SELECT * FROM books WHERE id=$1`;
   let values = [request.params.id];
   client.query(sql, values)
     .then(
       results => response.render('pages/show', {books: results.rows}))
     .catch (err => {
-      console.log(err);
       response .status(500).send(err);
     });
 };
@@ -45,6 +44,7 @@ const addBook = (request, response) => {
 
 
 //Routes
+app.get('/', (request, response) => {response.redirect('/books');});
 app.get('/books', books);
 app.get('/books/:id', details);
 app.get('/add', addBook)

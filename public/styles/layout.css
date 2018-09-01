@@ -31,3 +31,9 @@ ul {
   padding: 20px;
 }
 
+.tab {
+  display: inline;
+  font-size: 26px;
+  padding: 10px;
+}
+
