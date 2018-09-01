@@ -22,6 +22,14 @@ nav li:hover {
   color: rgb(133, 102, 218);
 }
 
+input:invalid {
+  border: 2px dashed red;
+}
+
+input:valid {
+  border: 2px solid black;
+}
+
 @media only screen and (min-width: 600px) {
   .icon-menu {
     display: none;
@@ -32,7 +40,10 @@ nav li:hover {
   }
 }
 
-
+#message {
+  font-size: 18px;
+  padding: 10px;
+}
 
 #book_img {
   float: center;
