@@ -4,9 +4,7 @@ require('dotenv').config();
 
 const express = require('express');
 const pg = require('pg');
-
 const app = express();
-
 const client = new pg.Client(process.env.DATABASE_URL);
 const PORT = process.env.PORT;
 client.connect();
@@ -22,9 +20,7 @@ const books = (request, response) => {
   client.query('SELECT title, author, image_url, id FROM books;')
     .then(results =>
       response.render('index', {books: results.rows}))
-    .catch (err => {
-      response .status(500).send(err);
-    });
+    .catch (err => handleError(err, response));
 };
 
 const details = (request, response) => {
@@ -32,25 +28,39 @@ const details = (request, response) => {
   let values = [request.params.id];
   client.query(sql, values)
     .then(
-      results => response.render('pages/show', {books: results.rows}))
-    .catch (err => {
-      response .status(500).send(err);
-    });
+      result => response.render('pages/show', {book: result.rows[0]}))
+    .catch (err => handleError(err, response));
+};
+
+const newBook = (request, response) => {
+  response.render('pages/new');
 };
 
 const addBook = (request, response) => {
-  response.render('pages/new');
-};
+  let {title, author, isbn, image_url, description} = request.body;
+  let SQL = `INSERT INTO books(title, author, isbn, image_url, description) VALUES ($1, $2, $3, $4, $5);`;
+  let values = [title, author, isbn, image_url, description];
+  return client.query(SQL, values).then(() => {
+    response.render('pages/add', {book: request.body}).catch(err => handleError(err, response));
+  }).catch(err => handleError(err, response));
+}
+
 
 
 //Routes
 app.get('/', (request, response) => {response.redirect('/books');});
 app.get('/books', books);
+app.get('/add', newBook);
 app.get('/books/:id', details);
-app.get('/add', addBook)
+app.post('/add', addBook);
 
 app.get('*', (request, response) => {
   response.render('pages/error');
 });
+
+
+function handleError(error, response) {
+  response.render('pages/error', {error: error});
+}
 
 app.listen(PORT, () => console.log('Listening on PORT', PORT));
