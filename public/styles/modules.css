@@ -89,14 +89,14 @@ input:valid {
   box-shadow: 2px 2px 2px black;
 }
 
-#button {
+.list {
   display: block;
   text-align: center;
   padding: 10px;
   margin: 20px auto;
   background-color: rgb(24, 24, 24);
-  min-width: 150px;
-  max-width: 20%;
+  min-width: 240px;
+  max-width: 40%;
   color: #fafafa;
   Font-size: 24px;
   border-radius: 4px;

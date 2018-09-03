@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head') %>
+  <body>
+  <%- include('../partials/header') %>
+    <div id='page-label'>
+      <h2 class='label'>Search Results</h2>
+    </div>
+    <% results.forEach(book => { %>
+      <div data-book-id="<%= book.isbn %>">
+        <section class ='books'>
+          <ul class ='book'>
+            <li class='items'>
+            <img id = 'book_img' src= "<%= book.image_url %>"/></li>
+            <li class='items' id='title'>Title: <% if (book.subtitle) { %>
+            <h3><%= book.title %>: <%= book.subtitle %></h3>
+          <% } else { %>
+            <h3><%= book.title %></h3>
+          <% } %></li>
+            <li class ='items' id='author'>Author: <%= book.author%></li>
+            <li class='items' id='description'><%= book.description%></li>
+            <li class='items'><%= book.isbn%></li>
+            <a class='list' id='button' href ="./books/<%= book.id %>">Add to Database</a>
+          </ul>
+        </section>
+      </div>
+    <% }); %>    
+    <%- include('../partials/footer') %>
+  </body>
+</html>
