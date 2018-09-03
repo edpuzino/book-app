@@ -6,10 +6,20 @@
     <div id='page-label'>
       <h2 class='label'>Search by Title or Author</h2>
     </div>
-    <form id='form' action='/add' method='get'>
-      <p class='text' id='enter'>Enter a Title or Author</p>
-      <input type="text" class="text" name='title' placeholder='Title' required pattern='[A-Z][A-Za-z -]+'>
-      <input type="text" class="text" name='author' placeholder="Author" required pattern='[A-Z][A-Za-z -]+'>
+    <form id='form' action='/searches' method='post'>
+      <input type="text" class='text' name='search' placeholder='Enter a title or author' required>
+      <fieldset>
+        <label for="title"> 
+          <span>Title</span>
+          <input type="radio" id="title" name="search" value="title" required>
+        </label>
+      </fieldset>
+      <fieldset>
+        <label for="author">
+          <span>Author</span>
+          <input type="radio" id="author" name="search" value="author" required>
+        </label>
+      </fieldset>
       <button class='list' type='submit'> Search the Google Books API</button>
     </form>
     <%- include('../partials/footer') %>
