@@ -7,10 +7,10 @@ ul {
   width: 100%;
 }
 
-#text {
+.text {
   display: block;
-  min-width: 180px;
-  max-width: 60%;
+  min-width: 400px;
+  max-width: 30%;
   margin: 20px auto 0px auto;
   padding: 25px;
   background-color: #fafafa;

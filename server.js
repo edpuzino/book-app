@@ -36,6 +36,10 @@ const newBook = (request, response) => {
   response.render('pages/new');
 };
 
+const searchBook = (request, response) => {
+  response.render('pages/search');
+};
+
 const addBook = (request, response) => {
   let {title, author, isbn, image_url, description} = request.body;
   let SQL = `INSERT INTO books(title, author, isbn, image_url, description) VALUES ($1, $2, $3, $4, $5);`;
@@ -43,7 +47,7 @@ const addBook = (request, response) => {
   return client.query(SQL, values).then(() => {
     response.render('pages/add', {book: request.body}).catch(err => handleError(err, response));
   }).catch(err => handleError(err, response));
-}
+};
 
 
 
@@ -51,6 +55,7 @@ const addBook = (request, response) => {
 app.get('/', (request, response) => {response.redirect('/books');});
 app.get('/books', books);
 app.get('/add', newBook);
+app.get('/search', searchBook);
 app.get('/books/:id', details);
 app.post('/add', addBook);
 

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head') %>
+  <body>
+  <%- include('../partials/header') %>
+    <div id='page-label'>
+      <h2 class='label'>Search by Title or Author</h2>
+    </div>
+    <form id='form' action='/add' method='get'>
+      <p class='text' id='enter'>Enter a Title or Author</p>
+      <input type="text" class="text" name='title' placeholder='Title' required pattern='[A-Z][A-Za-z -]+'>
+      <input type="text" class="text" name='author' placeholder="Author" required pattern='[A-Z][A-Za-z -]+'>
+      <button class='list' type='submit'> Search the Google Books API</button>
+    </form>
+    <%- include('../partials/footer') %>
+  </body>
+</html>
