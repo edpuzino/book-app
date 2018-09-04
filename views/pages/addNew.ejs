@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head') %>
+  <body>
+  <%- include('../partials/header') %>
+    <section class ='books'>
+      <ul class ='book'>
+        <li id='message'>You have sucessfully added the following book to the database!!!</li>
+        <li class='items'>
+        <img id = 'book_img' src= "<%= book.image_url %>"/></li>
+        <li class='items' id='title'>Title: <%= book.title%></li>
+        <li class='items' id='author'>Author: <%= book.author%></li>
+        <li class='items' id='description'><%= book.description%></li>
+        <li class='items'><%= book.isbn%></li>
+        <a class='list' id='button' href="/books"> Books List</a>
+      </ul>
+    </section>    
+    <%- include('../partials/footer') %>
+  </body>
+</html>
