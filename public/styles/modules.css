@@ -115,3 +115,7 @@ input:valid {
 .error {
   font-size: 75px;
 }
+
+#hide-me input, #hide-me textarea {
+  display: none;
+}

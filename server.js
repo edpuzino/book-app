@@ -50,6 +50,15 @@ const addBook = (request, response) => {
   }).catch(err => handleError(err, response));
 };
 
+const searchAdd = (request, response) => {
+  let {title, author, isbn, image_url, description} = request.body;
+  let SQL = `INSERT INTO books(title, author, isbn, image_url, description) VALUES($1, $2, $3, $4, $5);`;
+  let values = [title, author, isbn, image_url, description];
+  return client.query(SQL, values).then(() => {
+    response.render('pages/addNew', {book: request.body}).catch(err => handleError(err, response));
+  }).catch(err => handleError(err, response));
+};
+
 const createSearch = (request, response) => {
   let url = 'https://www.googleapis.com/books/v1/volumes';
   let query = '';
@@ -59,7 +68,7 @@ const createSearch = (request, response) => {
 
   superagent.get(url).query({'q': query}).then(apiResponse => apiResponse.body.items.map(bookResult =>{
     let {title, subtitle, authors, industryIdentifiers, imageLinks, description} = bookResult.volumeInfo;
-    let placeholderImage = 'http://www.newyorkpaddy.com/images/covers/NoCoverAvailable.jpg';
+    let placeholderImage = 'https://bindercovers.net/files/covers/images/comic-book-binder-cover-thumbnail.png';
 
     return {
       title: title ? title : 'No title available',
@@ -73,6 +82,8 @@ const createSearch = (request, response) => {
   })).then(results => response.render('pages/newShow', {results: results})).catch(err => handleError(err, response));
 }
 
+
+
 //Routes
 app.get('/', (request, response) => {response.redirect('/books');});
 app.get('/books', books);
@@ -80,14 +91,8 @@ app.get('/add', newBook);
 app.get('/search', searchBook);
 app.get('/books/:id', details);
 app.post('/add', addBook);
+app.post('/new', searchAdd);
 app.post('/searches', createSearch);
-/*
-app.get('/super', (request, response) => {
-  superagent.get(url).query({'q': query}).then(results => {
-    response.send(results.body)
-  });
-});
-*/
 
 app.get('*', (request, response) => {
   response.render('pages/error');
